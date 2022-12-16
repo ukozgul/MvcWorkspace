@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>TestingIndex</h1>
+
+@*@ViewData["Message"]
+<hr />
+@ViewBag.Deneme*@
+
+<ul>
+    @foreach (var item in (IEnumerable<SelectListItem>)ViewData["Opsiyonlar"])
+    {
+        <li>
+            @item.Value - @item.Text
+        </li>
+
+    }
+</ul>
+<select asp-items="ViewBag.Dropdown">
+    <option value="0" selected readonly>------Seçim yapınız-----</option>
+</select>
