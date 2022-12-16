@@ -1,0 +1,5 @@
+CRUD işlemleri yapılacak
+
+Read işlemi Index içinde yapılacak
+Create ve update aynı yerde yapılacak
+Hepsi tek Controllerde gerçekleştirilecek
