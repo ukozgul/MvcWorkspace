@@ -1,5 +1,5 @@
 CRUD işlemleri yapılacak
 
 Read işlemi Index içinde yapılacak
-Create ve update aynı yerde yapılacak
+Create ve update aynı yerde (View) yapılacak (post yapılacak-ikiside aynı action ı çalıştıracak id belirleyici rol oynayacak)
 Hepsi tek Controllerde gerçekleştirilecek

@@ -20,11 +20,26 @@ namespace MvcWorkspace.Controllers
             return View(expenses);  //veri tabanından aldığını View de göster
         }
 
-        public IActionResult Delete(int id) 
+        public IActionResult AddOrUpdate(int id)
         {
-            var expense=_db.Expenses.Find(id);
+            if (id == 0)
+            {
+                //Add
+                return View(new Expense());
+            }
+            else
+            {
+                //Update
+                var obj=_db.Expenses.Find(id);
+                return View(obj);
+            }
+        }
 
-            if (expense==null || id==0)
+        public IActionResult Delete(int id)
+        {
+            var expense = _db.Expenses.Find(id);
+
+            if (expense == null || id == 0)
             {
                 return NotFound();
             }
@@ -34,5 +49,7 @@ namespace MvcWorkspace.Controllers
 
             return RedirectToAction("Index");
         }
+
+
     }
 }
