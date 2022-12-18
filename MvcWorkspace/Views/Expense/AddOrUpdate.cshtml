@@ -3,7 +3,7 @@
     ViewData["Title"] = "AddOrUpdate";
 }
 
-<h1>AddOrUpdate</h1>
+<h1>AddOrUpdateExpense</h1>
 
 <div>
     <form method="post">
@@ -16,7 +16,7 @@
         <label asp-for="Amount" class="form-label"></label>
         <input asp-for="Amount" class="form-control" />
         <div asp-validation-for="Amount"></div>
-
+        <br />
         <a type="submit" class="btn btn-primary" asp-controller="Expense" asp-action="AddOrUpdate">Add</a>
     </form>
 </div>
