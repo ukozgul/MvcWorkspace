@@ -35,6 +35,26 @@ namespace MvcWorkspace.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddOrUpdate(Expense expense)
+        {
+            if (ModelState.IsValid)
+            {
+                if (expense.Id == 0)
+                {
+                    _db.Add(expense);
+                }
+                else
+                {
+                    _db.Update(expense);
+                }
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(expense);
+        }
+
         public IActionResult Delete(int id)
         {
             var expense = _db.Expenses.Find(id);
