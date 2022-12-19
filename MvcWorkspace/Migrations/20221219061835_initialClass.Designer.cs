@@ -11,8 +11,8 @@ using MvcWorkspace.Data;
 namespace MvcWorkspace.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221217234653_initalCreate")]
-    partial class initalCreate
+    [Migration("20221219061835_initialClass")]
+    partial class initialClass
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,23 @@ namespace MvcWorkspace.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Expenses");
+                });
+
+            modelBuilder.Entity("MvcWorkspace.Models.ExpenseCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ExpenseCategories");
                 });
 #pragma warning restore 612, 618
         }
