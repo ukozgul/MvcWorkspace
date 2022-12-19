@@ -21,6 +21,8 @@ namespace MvcWorkspace.Controllers
             return View(expenses);  //veri tabanından aldığını View de göster
         }
 
+
+        //GET - AddOrUpdate
         public IActionResult AddOrUpdate(int id)
         {
             if (id == 0)
@@ -36,11 +38,12 @@ namespace MvcWorkspace.Controllers
             }
         }
 
+        //POST - AddOrUpdate
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddOrUpdate(Expense expense)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)  //Server side validation
             {
                 if (expense.Id == 0)
                 {

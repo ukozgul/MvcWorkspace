@@ -3,17 +3,37 @@
     ViewData["Title"] = "AddOrUpdate";
 }
 
-<h1>AddOrUpdateExpenseCategory</h1>
 
-<div>
-    <form method="post">
-        <input asp-for="Id" hidden />
+    <form method="post" asp-action="AddOrUpdate">
+        <div class="p-3 col-12">
+            <input type="hidden" asp-for="Id" />
+            <h2 class="text-black-50 pl-3">Add Expense Category</h2>
+            <div class="row col-6">
+                <div class="pb-3">
 
-        <label asp-for="CategoryName" class="form-label"></label>
-        <input asp-for="CategoryName" class="form-control" />
-        <div asp-validation-for="CategoryName"></div>
+                    <label asp-for="CategoryName" class="form-label"></label>
+                    <input asp-for="CategoryName" class="form-control" />
+                    <div asp-validation-for="CategoryName"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 text-start">
+                    <a asp-action="Index" class="btn btn-outline-primary w-100 ">Back</a>
+                </div>
+                <div class="col-3 text-end">
 
-        <br />
-        <a type="submit" class="btn btn-primary" asp-controller="ExpenseCategory" asp-action="AddOrUpdate">Add</a>
+                    @{
+                        if (Model.Id == 0)
+                        {
+                            <input type="submit" class="btn btn-info w-100" value="Create" />
+                        }
+                        else
+                        {
+                            <input type="submit" class="btn btn-info w-100" value="Update" />
+                        }
+                    }
+                </div>
+                <br />
+            </div>
+        </div>
     </form>
-</div>
