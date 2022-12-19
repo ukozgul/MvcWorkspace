@@ -19,7 +19,18 @@ namespace MvcWorkspace.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Expense> expenses = _db.Expenses;
+            //IEnumerable<Expense> expenses = _db.Expenses;
+
+            //foreach (var exp in expenses)
+            //{
+            //    exp.ExpenseCategory=_db.ExpenseCategories.FirstOrDefault(e => e.Id == exp.ExpenseCategoryId);
+            //}
+
+
+            //EAGER LOADİNG (bu tekniğin adı: aç gözlülük)
+            IEnumerable<Expense> expenses = _db.Expenses.Include(u=> u.ExpenseCategory);
+
+
             return View(expenses);  //veri tabanından aldığını View de göster
         }
 
@@ -95,6 +106,20 @@ namespace MvcWorkspace.Controllers
             _db.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        //GET
+        public IActionResult ExpensesByCategory(int id)
+        {
+            IEnumerable<Expense> expenseByCatList = _db.Expenses.Where(x => x.ExpenseCategoryId == id);
+
+            int totalAmount = 0;
+            foreach (var e in expenseByCatList)
+            {
+                totalAmount += e.Amount;
+            }
+            ViewBag.totalAmount = totalAmount;
+            return View(expenseByCatList);
         }
 
 
