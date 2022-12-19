@@ -25,11 +25,11 @@
                     @{
                         if (Model.Id == 0)
                         {
-                            <input type="submit" class="btn btn-info w-100" value="Create" />
+                            <input type="submit" class="btn btn-info w-100" value="Add Expense Category" />
                         }
                         else
                         {
-                            <input type="submit" class="btn btn-info w-100" value="Update" />
+                        <input type="submit" class="btn btn-info w-100" value="Update Expense Category" />
                         }
                     }
                 </div>
@@ -37,3 +37,10 @@
             </div>
         </div>
     </form>
+
+@*Front End işler için*@
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
