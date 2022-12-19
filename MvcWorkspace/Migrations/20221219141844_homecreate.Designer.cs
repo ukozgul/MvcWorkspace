@@ -11,8 +11,8 @@ using MvcWorkspace.Data;
 namespace MvcWorkspace.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221219061835_initialClass")]
-    partial class initialClass
+    [Migration("20221219141844_homecreate")]
+    partial class homecreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,11 +34,16 @@ namespace MvcWorkspace.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
+                    b.Property<int>("ExpenseCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ExpenseName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExpenseCategoryId");
 
                     b.ToTable("Expenses");
                 });
@@ -58,6 +63,17 @@ namespace MvcWorkspace.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ExpenseCategories");
+                });
+
+            modelBuilder.Entity("MvcWorkspace.Models.Expense", b =>
+                {
+                    b.HasOne("MvcWorkspace.Models.ExpenseCategory", "ExpenseCategory")
+                        .WithMany()
+                        .HasForeignKey("ExpenseCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ExpenseCategory");
                 });
 #pragma warning restore 612, 618
         }
