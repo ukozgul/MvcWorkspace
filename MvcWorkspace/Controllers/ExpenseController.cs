@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcWorkspace.Data;
 using MvcWorkspace.Models;
+using MvcWorkspace.Models.ViewModels;
 
 namespace MvcWorkspace.Controllers
 
@@ -25,16 +27,37 @@ namespace MvcWorkspace.Controllers
         //GET - AddOrUpdate
         public IActionResult AddOrUpdate(int id)
         {
+            ExpenseVM expenseVM = new ExpenseVM()
+            {
+                Expense = new Expense(),
+                CategoryDropDown = _db.ExpenseCategories.Select(i =>
+                                    new SelectListItem
+                                    {
+                                        Text = i.CategoryName,
+                                        Value = i.Id.ToString()
+                                    })
+            };
+
+            //IEnumerable<SelectListItem> CategoryDropDown = _db.ExpenseCategories.Select(i =>
+            //new SelectListItem
+            //{
+            //    Text = i.CategoryName,
+            //    Value = i.Id.ToString()
+            //}); //her bir i için yeni bir selectlistitem oluştur. Text ve valuyi ona göre ata  value string olmalı...
+
+            ////ViewBag.CategoryDropDown = CategoryDropDown;
+            
+
             if (id == 0)
             {
                 //Add
-                return View(new Expense());
+                return View(expenseVM);
             }
             else
             {
                 //Update
-                var obj=_db.Expenses.Find(id);
-                return View(obj);
+                expenseVM.Expense = _db.Expenses.Find(id);
+                return View(expenseVM);
             }
         }
 
