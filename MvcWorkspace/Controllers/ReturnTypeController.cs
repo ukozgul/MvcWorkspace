@@ -62,7 +62,7 @@ namespace MvcWorkspace.Controllers
 
         {
 
-            return Created("http://example.org/myitem&quot;, new { name = "newitem" });
+            return Created("http://example.org/myitem&quot", new { name = "newitem" });
 
         }
 
@@ -326,7 +326,7 @@ namespace MvcWorkspace.Controllers
 
         {
 
-            return Redirect("https://www.google.com/&quot;);
+            return Redirect("https://www.google.com/&quot");
 
         }
 
