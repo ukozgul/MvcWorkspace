@@ -11,6 +11,6 @@ namespace MvcWorkspace.Data
         }
 
         //DbSetler 
-        DbSet<ToDoModel> ToDoModels { get; set; }   
+        public DbSet<ToDoModel> ToDoModels { get; set; }   
     }
 }

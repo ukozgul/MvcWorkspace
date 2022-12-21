@@ -1,0 +1,34 @@
+﻿@model MvcWorkspace.Models.ToDoModel
+@{
+    ViewData["Title"] = "AddOrUpdate";
+}
+
+<h1>AddOrUpdateExpenseCategory</h1>
+
+<div>
+    <form method="post" >
+        <input asp-for="Id" hidden />
+
+        <label asp-for="Work" class="form-label"></label>
+        <input asp-for="Work" class="form-control" />
+        <span asp-validation-for="Work"></span>
+
+       @* <label asp-for="IsItOver" class="form-label"></label>
+        <input asp-for="IsItOver" class="form-check-input" type="checkbox" value="" />*@
+        
+        <label asp-for="Time" class="form-label"></label>
+        <input asp-for="Time" class="form-control" />
+
+        <label asp-for="Priority" class="form-label"></label>
+        <select asp-for="Priority" asp-items="Html.GetEnumSelectList<Precedence>()" class="form-control">
+            <option value="-1" readonly >---select priority-----</option>
+            </select>
+        <br />
+        <button type="submit" class="btn btn-primary" asp-controller="ToDo" action="AddOrUpdate">Add</button>
+    </form>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

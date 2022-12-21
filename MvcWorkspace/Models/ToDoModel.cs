@@ -12,9 +12,9 @@ namespace MvcWorkspace.Models
         public DateTime Time { get; set; }
         public Precedence Priority { get; set; }
 
+    }
         public enum Precedence
         {
             First, Second, Third
         }
-    }
 }
