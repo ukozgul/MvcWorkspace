@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MvcWorkspace.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class atHome : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

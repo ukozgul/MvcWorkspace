@@ -45,7 +45,7 @@ namespace MvcWorkspace.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ToDoModels", (string)null);
+                    b.ToTable("ToDoModels");
                 });
 #pragma warning restore 612, 618
         }

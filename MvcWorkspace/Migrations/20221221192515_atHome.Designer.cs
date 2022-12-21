@@ -12,8 +12,8 @@ using MvcWorkspace.Data;
 namespace MvcWorkspace.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221221065156_initialCreate")]
-    partial class initialCreate
+    [Migration("20221221192515_atHome")]
+    partial class atHome
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
