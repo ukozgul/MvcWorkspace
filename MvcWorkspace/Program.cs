@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IExpenseService, ExpenseService>();
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Configuration.GetConnectionString("LocalConnection")));
 
 var app = builder.Build();
 
