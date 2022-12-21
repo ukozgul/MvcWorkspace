@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MvcWorkspace.Models;
 
 namespace MvcWorkspace.Data
 {
@@ -9,6 +10,7 @@ namespace MvcWorkspace.Data
         {
         }
 
-        //DbSetler
+        //DbSetler 
+        DbSet<ToDoModel> ToDoModels { get; set; }   
     }
 }
