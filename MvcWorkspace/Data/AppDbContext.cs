@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MvcWorkspace.Models;
 
 namespace MvcWorkspace.Data
 {
@@ -10,5 +11,8 @@ namespace MvcWorkspace.Data
         }
 
         //DbSetler
+        public DbSet<Personel> Personeller { get; set; }
+        public DbSet<Bolum> Bolumler { get; set; }
+
     }
 }

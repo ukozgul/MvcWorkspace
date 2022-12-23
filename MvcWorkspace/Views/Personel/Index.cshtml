@@ -1,0 +1,15 @@
+﻿@model PersonelVM
+<ul>
+    @foreach (var personel in Model.PersonelListe)
+    {
+        <li>@personel.Name
+            ||
+            @personel.Bolum.Name
+        </li>
+
+    }
+
+</ul>
+    <br />
+@*<h4>Toplam: @ViewBag.PersonelSayi</h4>*@
+<h4>Toplam: @Model.PersonelSayi</h4>
